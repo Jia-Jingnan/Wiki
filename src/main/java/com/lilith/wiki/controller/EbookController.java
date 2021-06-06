@@ -1,5 +1,6 @@
 package com.lilith.wiki.controller;
 
+import com.lilith.wiki.common.WikiRes;
 import com.lilith.wiki.entity.Ebook;
 import com.lilith.wiki.service.EbookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +21,13 @@ public class EbookController {
     @Autowired
     private EbookService ebookService;
 
-    @GetMapping
-    public List<Ebook> list(){
-        return ebookService.list();
+    @GetMapping("/list")
+    public WikiRes list(){
+        WikiRes wikiRes = new WikiRes();
+        List<Ebook> ebookList = ebookService.list();
+        wikiRes.setSuccess(true);
+        wikiRes.setMessage("成功");
+        wikiRes.setData(ebookList);
+        return wikiRes;
     }
 }
