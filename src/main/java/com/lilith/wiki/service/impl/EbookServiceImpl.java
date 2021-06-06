@@ -5,6 +5,7 @@ import com.lilith.wiki.entity.Ebook;
 import com.lilith.wiki.entity.EbookExample;
 import com.lilith.wiki.mapper.EbookMapper;
 import com.lilith.wiki.service.EbookService;
+import com.lilith.wiki.util.CopyUtil;
 import com.lilith.wiki.vo.EbookVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,13 +34,8 @@ public class EbookServiceImpl implements EbookService {
         List<Ebook> ebookList = ebookMapper.selectByExample(ebookExample);
 
         // 前端展示对象EbookVO
-        List<EbookVO> ebookVOList = new ArrayList<>();
+        List<EbookVO> ebookVOList = CopyUtil.copyList(ebookList,EbookVO.class);
 
-        for (Ebook ebook : ebookList) {
-            EbookVO ebookVO = new EbookVO();
-            BeanUtils.copyProperties(ebook,ebookVO);
-            ebookVOList.add(ebookVO);
-        }
         return ebookVOList;
     }
 }
