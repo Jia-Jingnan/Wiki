@@ -1,6 +1,8 @@
 package com.lilith.wiki.service;
 
+import com.lilith.wiki.bo.EbookBO;
 import com.lilith.wiki.entity.Ebook;
+import com.lilith.wiki.vo.EbookVO;
 
 import java.util.List;
 
@@ -10,5 +12,5 @@ import java.util.List;
  */
 public interface EbookService {
 
-    List<Ebook> list();
+    List<EbookVO> list(EbookBO ebookBO);
 }
