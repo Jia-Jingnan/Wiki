@@ -17,8 +17,8 @@ public class JasyptUtilTest extends WikiApplicationTests {
 
     @Test
     public void getEncryptResult() {
-        String encryptResult1 = jasyptUtil.getEncryptResult("root");
-        String encryptResult2 = jasyptUtil.getEncryptResult("Abc*123456");
+        String encryptResult1 = jasyptUtil.getEncryptResult("123");
+        String encryptResult2 = jasyptUtil.getEncryptResult("123123");
         System.out.println(encryptResult1);
         System.out.println(encryptResult2);
     }
